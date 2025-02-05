@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='desktop.css')}}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}"> 
+    <title>Pixel & Circuit</title>
+</head>
+<body>
+    <div class="parte_superior">
+        <div class="barra_busqueda">
+            <form method="post">
+                <input name="busqueda" type="search" placeholder="Buscar Productos">
+            </form>
+        </div>
+        <div class="enlaces">
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('mostrar_categorias') }}">Categorias</a>
+            <a href="mailto:pixelcircuit2@gmail.com">Contactanos</a>
+            <a href="{{ url_for('carrito') }}">Carrito</a>
+            <div class="login">
+                {% if username %}
+                    <span>{{username}}</span>
+                {% else %}
+                    <a href="{{ url_for('iniciar_sesion') }}" target="_blank">
+                        <button>Iniciar Sesion</button>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+<div class="info">
+    <h1>¿Quienes Somos?</h1>
+    <p>En Pixel & Circuit, vivimos y respiramos el mundo gamer. Nacimos con una misión clara: llevar la mejor tecnología y accesorios gaming a todos los jugadores, desde los más casuales hasta los profesionales de eSports. Creemos que cada partida merece ser épica, y por eso seleccionamos cuidadosamente cada producto para maximizar tu experiencia.
+
+        Nuestra historia comenzó con un grupo de gamers apasionados que no solo entendían la importancia del rendimiento, sino también de la estética y la innovación. Sabemos lo que necesitas porque nosotros también hemos pasado horas buscando ese mouse perfecto, ese teclado con la respuesta ideal, o esos auriculares que te transporten directamente al campo de batalla.
+        
+        ¿Qué nos hace diferentes?
+        
+        Una curaduría extrema de productos: Solo ofrecemos marcas y modelos que pasarían nuestras propias pruebas.
+        Atención personalizada: Te ayudamos a encontrar el equipo perfecto para tu estilo de juego.
+        Un compromiso con la comunidad: Apoyamos torneos, streamers emergentes y creadores de contenido.
+        Precios competitivos: Creemos que todo gamer merece calidad, sin importar el presupuesto.
+        Ya sea que estés montando tu primer setup o buscando esa pieza que faltaba para completar tu estación de juego, en Pixel & Circuit encontrarás el aliado perfecto. Porque para nosotros, el gaming no es solo un hobby, es un estilo de vida.
+        
+        ¡Súmate a nuestra comunidad y lleva tu pasión al siguiente nivel!</p>
+</div>
+</body>
+</html>

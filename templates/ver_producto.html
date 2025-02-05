@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='desktop.css')}}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}"> 
+    <title>Pixel & Circuit</title>
+</head>
+<body>
+    <div class="parte_superior">
+        <div class="barra_busqueda">
+            <form method="post">
+                <input name="busqueda" type="search" placeholder="Buscar Productos">
+            </form>
+        </div>
+        <div class="enlaces">
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('mostrar_categorias') }}">Categorias</a>
+            <a href="mailto:pixelcircuit2@gmail.com">Contactanos</a>
+            <a href="{{ url_for('info') }}">Sobre Nosotros</a>
+            <a href="{{ url_for('carrito') }}">Carrito</a>
+            
+            <div class="login">
+                {% if username %}
+                    <span>{{username}}</span>
+                {% else %}
+                    <a href="{{ url_for('iniciar_sesion') }}" target="_blank">
+                        <button>Iniciar Sesion</button>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+<div class="ver_producto">
+    {% if producto %}
+    <div class="imagenes_producto">
+        <img src="{{ url_for('static', filename=imagen_actual) }}" alt="Imagen"><h2>{{ producto[0][1] }} <br> ${{ producto[0][2] }}</h2>
+        <div class="navegacion">
+            {% if index_imagen > 0 %}
+            <a href="{{ url_for('ver_producto', id=producto[0][0], index=index_imagen-1) }}" class="btn">← Anterior</a>
+            {% endif %}
+            
+            {% if index_imagen < total_imagenes - 1 %}
+            <a href="{{ url_for('ver_producto', id=producto[0][0], index=index_imagen+1) }}" class="btn">Siguiente →</a>
+            {% endif %}
+        </div>
+        <h2><br>Descripcion<br><br><h3>{{ producto[0][3] }}</h3></h2>
+        <form method="POST" action="{{ url_for('agregar_carrito', id_producto=producto[0][0]) }}">
+            <button type="submit">Agregar al Carrito</button>
+        </form>        
+    </div>
+    {% else %}
+        <p>Producto no encontrado.</p>
+    {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='desktop.css') }}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}">    
+    <title>Pixel & Circuit</title>
+</head>
+<body>
+    <div class="parte_superior">
+        <div class="barra_busqueda">
+            <form method="post">
+                <input name="busqueda" type="search" placeholder="Buscar Productos">
+            </form>
+        </div>
+        <div class="enlaces">
+            <a href="{{ url_for('mostrar_categorias') }}">Categorias</a>
+            <a href="mailto:pixelcircuit2@gmail.com">Contactanos</a>
+            <a href="{{ url_for('info') }}">Sobre Nosotros</a>
+            <a href="{{ url_for('carrito') }}">Carrito</a>
+            <div class="login">
+                {% if username %}
+                    <span>{{username}}</span>
+                {% else %}
+                    <a href="{{ url_for('iniciar_sesion') }}" target="_blank">
+                        <button>Iniciar Sesion</button>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    
+<div class="productos">
+    <ul>
+        {% for producto in resultados %}
+            <li class="producto">
+                <a href="/producto/{{ producto[0] }}">
+                <img src="{{ url_for('static', filename=producto[3]) }}" alt="Imagen">
+                <div class="producto-info">
+                    <h2>{{ producto[1][:15] }} ...</h2>
+                    <p>${{ producto[2] }}</p>
+                </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,380 @@
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente */
+body {
+    font-family: Arial, sans-serif;
+    background: #bde1fa; /* Fondo */
+    color: #000; /* Texto negro */
+}
+
+/* Parte superior */
+.parte_superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #e1f0fd; /* Fondo */
+    box-shadow: 0 0 10px #41aeef; /* Sombra */
+}
+
+/* Barra de búsqueda */
+.barra_busqueda {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+
+.barra_busqueda input {
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid #1894df; /* Borde */
+    border-radius: 5px;
+    background: #e1f0fd; /* Fondo */
+    color: #000; /* Texto negro */
+    outline: none;
+}
+
+.barra_busqueda input::placeholder {
+    color: #0b75be; /* Placeholder negro */
+}
+
+/* Login y enlaces */
+.login,
+.enlaces {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.enlaces a {
+    text-decoration: none;
+    color: #000; /* Texto negro */
+    font-weight: bold;
+}
+
+.login a,
+.login span {
+    text-decoration: none;
+    color: #000; /* Texto negro */
+}
+
+.login button {
+    padding: 8px 15px;
+    background-color: #e1f0fd;
+    border: 2px solid #1894df;
+    color: #000; /* Texto negro */
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login button:hover {
+    border-color: #0b75be;
+}
+
+/* Productos */
+.productos ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    list-style-type: none;
+}
+
+.producto {
+    width: 200px;
+    margin: 10px;
+    background-color: #e1f0fd; /* Fondo */
+    border: 2px solid #1894df; /* Borde */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra */
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.producto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.producto-info h2 {
+    font-size: 18px;
+    color: #000; /* Texto negro */
+    margin-bottom: 5px;
+}
+
+.producto-info p {
+    font-size: 16px;
+    color: #000; /* Texto negro */
+}
+
+/* Ver Producto */
+.ver_producto {
+    padding: 20px;
+}
+
+.imagenes_producto img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+form input, form button {
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #1894df;
+    background-color: #e1f0fd; /* Fondo */
+    color: #000; /* Texto negro */
+}
+
+form button {
+    background-color: #e1f0fd;
+    color: #000; /* Texto negro */
+    cursor: pointer;
+}
+
+form button:hover {
+    border-color: #0b75be;
+}
+
+form input[type="search"] {
+    width: 250px;
+}
+
+/* Categorías */
+.categoria-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.categoria {
+    width: 30%;
+}
+
+.categoria img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+/* Sobre Nosotros */
+.info {
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra */
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.info h1 {
+    font-size: 24px;
+    color: #000; /* Texto negro */
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000; /* Texto negro */
+}
+
+/* Estilo general de enlaces */
+a {
+    color: #000; /* Texto negro */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #086ec5; /* Texto negro */
+}
+
+/* Botones */
+.btn {
+    padding: 10px 15px;
+    background-color: #1894df;
+    color: #000; /* Texto negro */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0b75be;
+}
+
+/* Estilos para el área de gestión de productos */
+.subir_productos, .borrar_productos {
+    background-color: #e1f0fd;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra */
+    margin: 20px;
+}
+
+.subir_productos input, .borrar_productos input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #1894df;
+    background-color: #e1f0fd;
+    color: #000; /* Texto negro */
+}
+
+.subir_productos button, .borrar_productos button {
+    padding: 12px;
+    background-color: #e1f0fd;
+    color: #000; /* Texto negro */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subir_productos button:hover, .borrar_productos button:hover {
+    background-color: #0b75be;
+}
+
+.imagenes_producto {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.imagenes_producto img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Iniciar sesión, registrarse y verificación */
+.iniciar_sesion,
+.registrarse,
+.verificación {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Estilo general para los botones */
+.btn, .navegacion a {
+    padding: 12px 20px;
+    background-color: #e1f0fd;
+    color: #000;
+    border: 2px solid #1894df;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn:hover, .navegacion a:hover {
+    background-color: #e1f0fd;
+    border-color: #0b75be;
+}
+
+/* Navegación */
+.navegacion {
+    display: flex;
+    justify-content: left;
+    position: relative;
+    top: 10px;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media screen and (max-width: 767px) {
+    .parte_superior {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .barra_busqueda {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .barra_busqueda input {
+        max-width: 100%;
+    }
+
+    .login, .enlaces {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .productos ul {
+        justify-content: center;
+    }
+
+    .producto {
+        width: 45%;
+    }
+
+    .categoria-container {
+        flex-direction: column;
+    }
+
+    .categoria {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .navegacion {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn, .navegacion a {
+        width: 100%;
+    }
+
+    .imagenes_producto img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ver_producto {
+        padding: 10px;
+    }
+
+    .info {
+        margin: 10px;
+    }
+}

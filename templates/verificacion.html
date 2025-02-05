@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='desktop.css')}}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}"> 
+    <title>Pixel & Circuit</title>
+</head>
+<body>
+    <form method="POST">
+        <div class="verificación">
+            <h1>Verificación</h1>
+            <label>Código de verificación:</label><br>
+            <input type="number" name="Codigo" required><br>
+            <button type="submit">Verificar</button>
+            <p>{{ mensaje }}</p>
+        </div>
+    </form>
+</body>
+</html>

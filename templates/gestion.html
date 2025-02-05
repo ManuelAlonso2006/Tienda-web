@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='desktop.css')}}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}"> 
+    <title>Pixel & Circuit - Gestión</title>
+</head>
+<body>
+    <div class="parte_superior">
+        <div class="barra_busqueda">
+            <form method="post">
+                <input name="busqueda" type="search" placeholder="Buscar Productos">
+            </form>
+        </div>
+        <div class="enlaces">
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('mostrar_categorias') }}">Categorias</a>
+            <a href="mailto:pixelcircuit2@gmail.com">Contactanos</a>
+            <a href="{{ url_for('info') }}">Sobre Nosotros</a>
+            <a href="{{ url_for('carrito') }}">Carrito</a>
+            
+            <div class="login">
+                {% if username %}
+                    <span>{{username}}</span>
+                {% else %}
+                    <a href="{{ url_for('iniciar_sesion') }}" target="_blank">
+                        <button>Iniciar Sesion</button>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% if action == 'subir_productos' %}
+        <div class="subir_productos">
+            <form action="{{ url_for('gestion', action='subir_productos') }}" method="post" enctype="multipart/form-data">
+                <input type="text" name="Categoria" placeholder="Categoría" required><br><br>
+                <input type="text" name="Nombre" placeholder="Título" required><br><br>
+                <input type="number" name="Precio" placeholder="Precio" required><br><br>
+                <input type="text" name="Descripcion" placeholder="Descripción" required><br><br>
+                <input type="number" name="Stock" placeholder="Stock" required><br><br>
+                <label for="images">Sube las imágenes del producto:</label><br><br>
+                <input type="file" id="images" name="images" accept="image/*" multiple><br><br>
+                <button type="submit">Subir</button>
+            </form>            
+        </div>
+    {% elif action == 'borrar_producto' %}
+        <div class="borrar_productos">
+            <form action="{{ url_for('gestion', action='borrar_producto') }}" method="post">
+                <input type="number" name="ID" placeholder="ID del Producto" required><br><br>
+                <button type="submit">Borrar</button>
+            </form>
+        </div>
+    {% else %}
+        <p>Acción no reconocida.</p>
+    {% endif %}
+</body>
+</html>

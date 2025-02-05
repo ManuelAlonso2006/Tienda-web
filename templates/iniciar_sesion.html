@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='desktop.css')}}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}"> 
+    <title>Pixel & Circuit</title>
+</head>
+<body>
+
+<form method="post"> 
+    <div class="iniciar_sesion">
+        <h1>Iniciar Sesion</h1>
+        <input type="text" name="Nombre" required placeholder="Nombre de Usuario">
+        <input type="email" name="Correo" required placeholder="Correo Electronico">
+        <button type="submit">Iniciar Sesion</button>
+        <p>¿No Tienes Cuenta? <a href="{{ url_for('registrarse') }}">Registrate</a></p>
+</div>
+</form>
+<p>{{ mensaje }}</p>
+</html>

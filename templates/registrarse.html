@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='desktop.css')}}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}"> 
+    <title>Pixel & Circuit</title>
+</head>
+<body>
+    <form method="post">
+        <div class="registrarse">
+            <h1>Registrarse</h1>
+            <input type="text" name="Nombre" required placeholder="Nombre de Usuario">
+            <input type="email" name="Correo" required placeholder="Correo Electronico">
+            <input type="text" name="Direccion" required placeholder="Direccion">
+            <button type="submit">Registrarse</button>
+            <p>¿Ya Tienes Cuenta? <a href="{{ url_for('iniciar_sesion') }}">Iniciar Sesion</a></p>
+            <p>{{ mensaje }}</p>
+    </div>
+    </form>
+</body>
+</html>
