@@ -14,7 +14,7 @@ class Productos:
     def mostrar_productos():
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute("""SELECT id,
         nombre, 
@@ -38,7 +38,7 @@ FROM Productos;
     def ver_producto(id):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('SELECT id, nombre, precio, descripcion FROM Productos WHERE id == (?)', (id,))
             resultados = cursor.fetchall()
@@ -53,7 +53,7 @@ FROM Productos;
     def ver_imagenes(id):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('SELECT imagenes FROM Productos WHERE id == (?)', (id,))
             resultados = cursor.fetchall()
@@ -69,7 +69,7 @@ FROM Productos;
     def buscar_productos(busqueda):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute("""SELECT id,
         nombre, 
@@ -95,7 +95,7 @@ FROM Productos WHERE nombre LIKE ? OR categoria LIKE ?;
     def mostrar_categoria(categoria):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute("""SELECT id,
         nombre, 
@@ -119,7 +119,7 @@ FROM Productos WHERE categoria == (?);
     def subir_producto(self):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('INSERT INTO Productos(categoria, nombre, precio, descripcion, stock, imagenes) VALUES(?, ?, ?, ?, ?, ?)', (self.categoria, self.nombre, self.precio, self.descripcion, self.stock, self.imagenes))
             conexion.commit()
@@ -134,7 +134,7 @@ FROM Productos WHERE categoria == (?);
     def borrar_producto(id):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('SELECT * FROM Productos WHERE id == ?', (id,))
             resultado = cursor.fetchone()

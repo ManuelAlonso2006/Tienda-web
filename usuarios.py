@@ -21,7 +21,7 @@ def obtener_fecha():
 def verificar_usuario(correo):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('SELECT correo FROM Usuarios WHERE correo == (?)', (correo,))
             resultados = cursor.fetchone()
@@ -90,7 +90,7 @@ class Usuarios:
         conexion = None
         try:
             correo = self.correo
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             if verificar_usuario(correo) == True:
                 return f'El correo ya esta asociado a una cuenta'
@@ -109,7 +109,7 @@ class Usuarios:
     def iniciar_sesion(self):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('SELECT * FROM Usuarios WHERE nombre == (?) AND correo == (?)', (self.nombre, self.correo,))
             resultado = cursor.fetchone()
@@ -128,7 +128,7 @@ class Usuarios:
     def obtener_direccion(correo):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('SELECT direccion FROM Usuarios WHERE correo == (?)', (correo,))
             resultado = cursor.fetchone()
@@ -146,7 +146,7 @@ class Usuarios:
     def obtener_id(correo):
         conexion = None
         try:
-            conexion = sqlite3.connect('database/database.db')
+            conexion = sqlite3.connect('persistent/database.db')
             cursor = conexion.cursor()
             cursor.execute('SELECT id FROM Usuarios WHERE correo == (?)', (correo,))
             resultado = cursor.fetchone()

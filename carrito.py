@@ -3,7 +3,7 @@ import sqlite3
 def agregar_al_carrito(id_usuario, id_producto):
     conexion = None
     try:
-        conexion = sqlite3.connect('database/database.db')
+        conexion = sqlite3.connect('persistent/database.db')
         cursor = conexion.cursor()
         cursor.execute('SELECT carrito FROM Usuarios WHERE id == (?)', (id_usuario,))
         resultados = cursor.fetchone() 
@@ -28,7 +28,7 @@ def agregar_al_carrito(id_usuario, id_producto):
 def eliminar_del_carrito(id_usuario, id_producto):
     conexion = None
     try:
-        conexion = sqlite3.connect('database/database.db')
+        conexion = sqlite3.connect('persistent/database.db')
         cursor = conexion.cursor()
         cursor.execute('SELECT carrito FROM Usuarios WHERE id == (?)', (id_usuario,))
         resultados = cursor.fetchone()
@@ -55,7 +55,7 @@ def calcular_total(id_usuario):
     conexion = None
     try:
         total = 0
-        conexion = sqlite3.connect('database/database.db')
+        conexion = sqlite3.connect('persistent/database.db')
         cursor = conexion.cursor()
         cursor.execute('SELECT carrito FROM Usuarios WHERE id == ?', (id_usuario,))
         resultados = cursor.fetchone()     
@@ -76,7 +76,7 @@ def calcular_total(id_usuario):
 def mostrar_carrito(id_usuario):
     conexion = None
     try:
-        conexion = sqlite3.connect('database/database.db')
+        conexion = sqlite3.connect('persistent/database.db')
         cursor = conexion.cursor()
 
         # Obtener la lista de productos en el carrito del usuario
