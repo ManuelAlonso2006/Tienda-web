@@ -35,4 +35,4 @@ Asegúrate de tener instalado lo siguiente:
 1. **Clona el Repositorio**:
    ```bash
    git clone https://github.com/ManuelAlonso2006/Tienda-web.git
-   cd Tienda-web
+   
